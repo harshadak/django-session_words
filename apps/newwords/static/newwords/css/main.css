@@ -1,0 +1,34 @@
+form {
+    display: inline-block;
+}
+
+.left {
+    width: 400px;
+    display: inline-block;
+}
+
+.right {
+    width: 400px;
+    display: inline-block;
+    vertical-align: top;
+}
+
+.blue {
+    color: blue;
+}
+
+.green {
+    color: green;
+}
+
+.red {
+    color: red;
+}
+
+.big {
+    font-size: 30px;
+}
+
+.small {
+    font-size: 15px;
+}

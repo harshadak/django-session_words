@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Survey Form</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        {% load static %}
+        <link rel="stylesheet" href="{% static 'newwords/css/main.css' %}" media="screen" title="no title"  charset="utf-8">
+    </head>
+    <body>
+        <div class="left">
+            <form action="/session_words/add_word" method="post">
+                {% csrf_token %}
+                Add a new word: <input type="text" name="word">
+                <p>Choose color:</p>
+                <label for="red">Red</label>
+                <input type="radio" id="red" name="color" value="red">
+                <label for="green">Green</label>
+                <input type="radio" id="green" name="color" value="green">
+                <label for="blue">Blue</label>
+                <input type="radio" id="blue" name="color" value="blue" checked="checked">
+                
+                <div><label for="size">show in BIG fonts!</label>
+                <input type="checkbox" id="big" name="size" value="big"></div>
+                
+
+                <input type="submit" value="Add to Session">
+            </form> 
+        </div>
+        <div class="right">
+            <a href="/session_words/clear"><button type="button">Clear Session</button></a>
+
+                <div>
+                    {% for x in request.session.all %}
+                        <p> <span class='{{ x.1 }} {{ x.2 }}'>{{ x.0 }}</span> {{ x.3 }}</p>
+                    {% endfor %}
+                </div>
+        </div>
+    </body>
+</html>
